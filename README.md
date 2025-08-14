@@ -32,7 +32,7 @@ gcc -Wall -Werror -Wextra -pedantic *.c -o hsh
 
 ### Design Principles
 - Modular functions for handling input, parsing, environment management and execution
-- Memory-safe practices using malloc, free and snprintf
+- Memory-safe practices using malloc and free
 - Follows Unix philosophy: "Simple, Composable and Efficient"
 
 ### Challenges Faced
