@@ -24,7 +24,7 @@ git clone https://github.com/CipherShadow-lab/holbertonschool-simple_shell.git
 cd holbertonschool-simple_shell
 
 # 2. Compile the shell
-gcc -Wall -Werror -Wextra -pedantic *.c -o hsh
+gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
 
 # 3. Run the shell
 ./hsh
