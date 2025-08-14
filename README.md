@@ -43,7 +43,7 @@ gcc -Wall -Werror -Wextra -pedantic *.c -o hsh
 
 ### 📂 Repository Files
 
-- `main.c` Entry point of the shell
+- `main.c` – Entry point of the shell
 - `handler.c` – Handles input and dispatches commands
 - `parser.c` – Tokenises user input
 - `executor.c` – Forks and executes commands
