@@ -1,7 +1,7 @@
-## Simple Shell Project
+# Simple Shell Project
 A basic Unix command-line interpreter built in C that replicates key features of the standard shell.
 
-### Project Description
+### 📖 Project Description
 This project is a simple Unix shell implemented in the C programming language. It replicates a subset of common shell behaviours such as executing programs, handling environment variables and responding to user input.
 
 The project demonstrates key low-level programming concepts, such as:
@@ -11,12 +11,12 @@ The project demonstrates key low-level programming concepts, such as:
 - Waiting for child processes with wait(); and
 - Accessing and modifying environment variables
 
-### Key Features
+### ⚙️ Key Features
 - Implemented built-ins including exit and env
 - Handling of commands with arguments
 - PATH handling to verify if a command exists
 
-### Installing and Running the Project
+### 🛠️ Installing and Running the Project
 
 ```bash
 # 1. Clone the repository
@@ -30,12 +30,12 @@ gcc -Wall -Werror -Wextra -pedantic *.c -o hsh
 ./hsh
 ```
 
-### Design Principles
+### 📐 Design Principles
 - Modular functions for handling input, parsing, environment management and execution
 - Memory-safe practices using malloc and free
 - Follows Unix philosophy: "Simple, Composable and Efficient"
 
-### Challenges Faced
+### 😤 Challenges Faced
 - Handling memory management carefully (no leaks!)
 - Managing the environment safely
 - Parsing user input into valid command and arguments
@@ -53,7 +53,7 @@ gcc -Wall -Werror -Wextra -pedantic *.c -o hsh
 - `shell.h` – Header file with all declarations
 - `README.md` – Project documentation
   
-### Credits
+### 👩🏽‍💻👩🏽‍💻👩🏽‍💻 Contributors
 - Anna Halaapiapi
 - Tran Nguyen
 - Toni Mathieson
