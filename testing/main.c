@@ -65,12 +65,13 @@ int main(void)
 			break;
 		}
 
-		if (input(read - 1) == '\n')
-			input(read - 1) = '\0';
+		if (input[read - 1] == '\n')
+			input[read - 1] = '\0';
 
-		handle_command(input);
+		/* handle_command(input); */
 	}
 
 	free(input);
+
 	return (0);
 }
