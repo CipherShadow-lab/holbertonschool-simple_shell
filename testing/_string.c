@@ -19,3 +19,21 @@ int _strcmp(const char *s1, const char *s2)
 
 	return (s1[i] - s2[i]);
 }
+
+/**
+ * _strlen - function returns the length of a string
+ * @s: pointer to string
+ *
+ * Return: length of string
+ */
+
+int _strlen(const char *s)
+{
+	int len = 0;
+
+	while (s[len] != '\0')
+		len++;
+
+	return (len);
+}
+

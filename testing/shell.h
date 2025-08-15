@@ -18,5 +18,6 @@ extern char **environ;
 
 /* string helpers */
 int _strcmp(const char *s1, const char *s2);
+int _strlen(const char *s);
 
 #endif
