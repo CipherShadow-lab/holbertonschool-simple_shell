@@ -46,31 +46,38 @@ int main(void)
 	ssize_t read;
 	int is_interactive;
 
+	/* isatty is either 0 (non-interactive) or 1 (interactive) */
 	is_interactive = isatty(STDIN_FILENO);
 
-	if (is_interactive)
+	if (is_interactive) /* banner only works for interactive mode */
 		print_banner();
 
 	while (1)
 	{
+		/* if isatty is 1 (interactive) present prompt */
 		if (is_interactive)
 			write(STDOUT_FILENO, "$ ", 2);
 
+		/* read value == typed command or script file */
 		read = getline(&input, &len, stdin);
 
+		/* if user enters CTRL+D or EOF is reached */
 		if (read == -1)
 		{
+			/* this inner loop runs if shell is interactive */
 			if (is_interactive)
+				/* prints newline so prompt appears on next line*/
 				write(STDOUT_FILENO, "\n", 1);
 			break;
 		}
 
-		if (input[read - 1] == '\n')
-			input[read - 1] = '\0';
+		if (input[read - 1] == '\n') /* checks if last char is \n */
+			input[read - 1] = '\0'; /* replaces it with a null-terminator */
 
 		/* handle_command(input); */
 	}
 
+	/* clean up */
 	free(input);
 
 	return (0);
