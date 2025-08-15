@@ -11,6 +11,7 @@ int main(void)
 	char *input = NULL;
 	size_t len = 0;
 	ssize_t = read;
+
 	int is_interactive = isatty(STDIN_FILENO);
 
 	while (1)
