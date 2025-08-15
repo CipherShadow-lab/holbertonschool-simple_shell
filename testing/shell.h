@@ -14,7 +14,7 @@ extern char **environ;
 
 
 /* function prototypes */
-
+void handle_command(char *input);
 
 /* string helpers */
 int _strcmp(const char *s1, const char *s2);
