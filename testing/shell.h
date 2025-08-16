@@ -17,8 +17,6 @@ extern char **environ;
 void handle_command(char *input);
 int handle_builtin(char *input);
 void print_env(void);
-char **parse_input(char *input);
-void execute_command(char **token_array);
 
 /* string helpers */
 int _strcmp(const char *s1, const char *s2);
