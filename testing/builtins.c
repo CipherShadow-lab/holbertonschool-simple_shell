@@ -2,9 +2,9 @@
 
 /**
  * handle_builtin - function handles exit and env commands
- * @input: user-typed input
+ * @input: user-typed input string
  *
- * Return: 0 on success
+ * Return: 1 if builtin handled, otherwise 0
  */
 
 int handle_builtin(char *input)
