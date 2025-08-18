@@ -7,7 +7,7 @@
  * Return: void
  */
 
-void handle_command(char *input)
+void handle_command(char *input, char *shell_name, int line_number)
 {
 	char **args; /* array of tokens/arguments parsed from user input */
 	int builtin_found; /* flag to indicate if command is a builtin */
@@ -23,7 +23,7 @@ void handle_command(char *input)
 
 	/* are there any tokens? (Yes) */
 	/* check if built-in command */
-	builtin_found = handle_builtin(args[0]);
+	builtin_found = handle_builtin(args, shell_name, line_number);
 
 	/* Is it a built-in command? (Yes) */
 	if (builtin_found != 0)
@@ -33,7 +33,7 @@ void handle_command(char *input)
 	}
 	/* Is it a built-in command? (No) */
 	/* Send to execute_command to find and execute command */
-	execute_command(args);
+	execute_command(args, shell_name, line_number);
 
 	/* TODO: free args array */
 }
