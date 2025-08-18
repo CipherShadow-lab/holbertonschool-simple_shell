@@ -37,7 +37,7 @@ char **parse_input(char *input)
 /* store tokens in args array */
 	token = strtok(input, " ");
 
-/*loop while there are tokens & space in the array(reserve last slot for NULL)*/
+/*loop while there are tokens & array space (reserve last slot for NULL)*/
 	while (token != NULL && index < array_size - 1)
 	{
 		args[index] = token;
