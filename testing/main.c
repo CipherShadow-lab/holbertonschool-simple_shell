@@ -45,6 +45,8 @@ int main(void)
 	size_t len = 0;
 	ssize_t read;
 	int is_interactive;
+    int line_number = 0;
+    char *shell_name = "./hsh";
 
 	/* isatty is either 0 (non-interactive) or 1 (interactive) */
 	is_interactive = isatty(STDIN_FILENO);
@@ -56,7 +58,7 @@ int main(void)
 	{
 		/* if isatty is 1 (interactive) present prompt */
 		if (is_interactive)
-			write(STDOUT_FILENO, "$ ", 2);
+			write(STDOUT_FILENO, "($) ", 4);
 
 		/* read value == typed command or script file */
 		read = getline(&input, &len, stdin);
@@ -74,7 +76,9 @@ int main(void)
 		if (input[read - 1] == '\n') /* checks if last char is \n */
 			input[read - 1] = '\0'; /* replaces it with a null-terminator */
 
-		/* handle_command(input); */
+        line_number++;
+
+		handle_command(input, shell_name, line_number);
 	}
 
 	/* clean up */

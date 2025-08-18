@@ -14,8 +14,8 @@ extern char **environ;
 
 
 /* function prototypes */
-void handle_command(char *input);
-int handle_builtin(char *input);
+void handle_command(char *input, char *shell_name, int line_number);
+int handle_builtin(char **input, char *shell_name, int line_number);
 void print_env(void);
 
 /* string helpers */
