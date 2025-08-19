@@ -57,3 +57,28 @@ char *_strcpy(char *dest, char *src)
 	dest[i] = '\0';
 	return (dest);
 }
+
+/**
+ * _strchr - locates the first occurence of a character in a string
+ * @str: the string to search
+ * @c: the character to find
+ *
+ * Return: pointer to first occurence of character in string, otherwise NULL
+ */
+
+char *_strchr(const char *str, int c)
+{
+    while (*str != '\0')
+    {
+        if (*str == (char)c)
+            return (char *)str;
+        str++;
+    }
+
+    if (c == '\0')
+        return (char *)str;
+
+    return (NULL);
+}
+
+
