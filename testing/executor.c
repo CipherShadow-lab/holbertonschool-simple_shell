@@ -41,7 +41,7 @@ void execute_command(char **args, char *shell_name, int line_number)
         /* child process */
         if (execve(command_path, args, environ) == -1)
         {
-            perror(shell_name);
+            perror(args[0]);
             free(command_path);
             exit(EXIT_FAILURE);
         }

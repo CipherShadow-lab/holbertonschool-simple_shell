@@ -58,6 +58,7 @@ int main(void)
 		/* if isatty is 1 (interactive) present prompt */
 		if (is_interactive)
 			write(STDOUT_FILENO, "💀 > ", 7);
+            fflush(stdout);
 
 		/* read value == typed command or script file */
 		read = getline(&input, &len, stdin);
