@@ -8,6 +8,7 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <sys/stat.h>
+#include <limits.h>
 
 /* Extern global */
 extern char **environ;
