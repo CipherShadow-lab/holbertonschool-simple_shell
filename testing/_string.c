@@ -81,4 +81,32 @@ char *_strchr(const char *str, int c)
     return (NULL);
 }
 
+/**
+ * _strcat - concetenates two strings
+ * @src: source string to append
+ * @dest: destination string
+ *
+ * Return: pointer to resulting string
+ */
+
+char *_strcat(char *dest, const char *src)
+{
+    int d = 0;
+    int s = 0;
+
+    /* find end of dest */
+    while (dest[d] != '\0')
+        d++;
+
+    while (src[s] != '\0')
+    {
+        dest[d] = src[s];
+        d++;
+        s++;
+    }
+
+    dest[d] = '\0'; /* null-terminate the result */
+
+    return dest;
+}
 
