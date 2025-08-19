@@ -19,9 +19,11 @@ int handle_builtin(char **input, char *shell_name, int line_number);
 void print_env(void);
 char **parse_input(char *input);
 void execute_command(char **input_command);
+char *find_in_path(char *command);
 
 /* string helpers */
 int _strcmp(const char *s1, const char *s2);
 int _strlen(const char *s);
+char *_strcpy(char *dest, char *src);
 
 #endif
