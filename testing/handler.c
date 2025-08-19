@@ -16,12 +16,13 @@ void handle_command(char *input, char *shell_name, int line_number)
 
 	args = parse_input(input); /* parse user input */
 
-	/* are there any tokens? (No) */
+    /* are there any tokens? (No) */
 	if (args == NULL || args[0] == NULL)
 	{
 		free(args);
 		return;
 	}
+
 	/* are there any tokens? (Yes) */
 	/* check if built-in command */
 	builtin_found = handle_builtin(args, shell_name, line_number);

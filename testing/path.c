@@ -13,7 +13,7 @@ char *find_in_path(char *command)
 	char *envpath; /* store value of PATH */
 	char *envpath_copy; /* copy of value of PATH */
 	char *directory; /* pointer to individual directories from PATH */
-	char full_path[1000]; /* buffer for full path of command */
+	char full_path[PATH_MAX]; /* fixed-size buffer for building full_path */
 
 	/* loop through characters in command */
 	while (command[counter] != '\0')
@@ -63,8 +63,9 @@ char *find_in_path(char *command)
 
 		if (access(full_path, X_OK) == 0) /* does command exist & is it executable? (yes) */
 		{
+            char *result = _strdup(full_path);
 			free (envpath_copy); /* free copy of PATH */
-			return (_strdup(full_path)); /* return full path */
+			return (result); /* return full path */
 		}
 
 		directory = strtok(NULL, ":"); /* move to next directory */
