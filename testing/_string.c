@@ -68,17 +68,17 @@ char *_strcpy(char *dest, char *src)
 
 char *_strchr(const char *str, int c)
 {
-    while (*str != '\0')
-    {
-        if (*str == (char)c)
-            return (char *)str;
-        str++;
-    }
+	while (*str != '\0')
+	{
+		if (*str == (char)c)
+			return ((char *)str);
+		str++;
+	}
 
-    if (c == '\0')
-        return (char *)str;
+	if (c == '\0')
+		return ((char *)str);
 
-    return (NULL);
+	return (NULL);
 }
 
 /**
@@ -91,22 +91,22 @@ char *_strchr(const char *str, int c)
 
 char *_strcat(char *dest, const char *src)
 {
-    int d = 0;
-    int s = 0;
+	int d = 0;
+	int s = 0;
 
-    /* find end of dest */
-    while (dest[d] != '\0')
-        d++;
+	/* find end of dest */
+	while (dest[d] != '\0')
+		d++;
 
-    while (src[s] != '\0')
-    {
-        dest[d] = src[s];
-        d++;
-        s++;
-    }
+	while (src[s] != '\0')
+	{
+		dest[d] = src[s];
+		d++;
+		s++;
+	}
 
-    dest[d] = '\0'; /* null-terminate the result */
+	dest[d] = '\0'; /* null-terminate the result */
 
-    return dest;
+	return (dest);
 }
 
