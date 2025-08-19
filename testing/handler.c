@@ -43,7 +43,7 @@ void handle_command(char *input, char *shell_name, int line_number)
 	/* Send to execute_command to find and execute command */
 	else
 	{
-		execute_command(args);
+		execute_command(args, shell_name, line_number);
 
 		free(args);
 	}
