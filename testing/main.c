@@ -44,9 +44,8 @@ int main(void)
 	char *input = NULL;
 	size_t len = 0;
 	ssize_t read;
-	int is_interactive;
-    int line_number = 0;
-    char *shell_name = "./hsh";
+	int is_interactive, line_number = 0;
+	char *shell_name = "./hsh";
 
 	/* isatty is either 0 (non-interactive) or 1 (interactive) */
 	is_interactive = isatty(STDIN_FILENO);
@@ -66,9 +65,7 @@ int main(void)
 		/* if user enters CTRL+D or EOF is reached */
 		if (read == -1)
 		{
-			/* this inner loop runs if shell is interactive */
 			if (is_interactive)
-				/* prints newline so prompt appears on next line*/
 				write(STDOUT_FILENO, "\n", 1);
 			break;
 		}
@@ -76,13 +73,10 @@ int main(void)
 		if (input[read - 1] == '\n') /* checks if last char is \n */
 			input[read - 1] = '\0'; /* replaces it with a null-terminator */
 
-        line_number++;
-
+		line_number++;
 		handle_command(input, shell_name, line_number);
 	}
 
-	/* clean up */
 	free(input);
-
 	return (0);
 }
