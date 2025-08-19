@@ -26,5 +26,8 @@ char *find_in_path(char *command);
 int _strcmp(const char *s1, const char *s2);
 int _strlen(const char *s);
 char *_strcpy(char *dest, char *src);
+char *_strchr(const char *s, int c);
+char *_strdup(const char *str);
+char *_strcat(char *dest, const char *src);
 
 #endif
