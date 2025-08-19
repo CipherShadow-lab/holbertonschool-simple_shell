@@ -1,5 +1,5 @@
 #include "shell.h"
-#include <string.h>
+
 /**
  * parse_input - tokenizes user input string
  * and stores pointers to each token in an args array

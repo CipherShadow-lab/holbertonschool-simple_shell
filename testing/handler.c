@@ -3,6 +3,8 @@
 /**
  * handle_command - processes and directs user input from main.c
  * @input: user input string (newline already removed)
+ * @shell_name: name of shell program
+ * @line_number: command number (used for error messages)
  *
  * Return: void
  */
@@ -17,7 +19,7 @@ void handle_command(char *input, char *shell_name, int line_number)
 	/* are there any tokens? (No) */
 	if (args == NULL || args[0] == NULL)
 	{
-		/* TODO: free args array */
+		free(args);
 		return;
 	}
 
@@ -28,12 +30,25 @@ void handle_command(char *input, char *shell_name, int line_number)
 	/* Is it a built-in command? (Yes) */
 	if (builtin_found != 0)
 	{
-		/* TODO: free args array */
+		free(args);
 		return;
 	}
 	/* Is it a built-in command? (No) */
-	/* Send to execute_command to find and execute command */
-	execute_command(args, shell_name, line_number);
+	/* Does the command exist? (No) */
+	if (find_in_path(args[0]) == NULL)
+	{
+		/* command not found - display error */
+		fprintf(stderr, "%s: %d: %s: not found\n",
+			shell_name, line_number, args[0]);
+		free(args);
+		return;
+	}
 
-	/* TODO: free args array */
+	/* Does the command exist? (Yes) */
+	/* Send to execute_command to find and execute command */
+	else
+	{
+		execute_command(args, shell_name, line_number);
+	}
+	free(args);
 }
