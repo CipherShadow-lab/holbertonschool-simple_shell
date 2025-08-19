@@ -22,7 +22,6 @@ void handle_command(char *input, char *shell_name, int line_number)
 		free(args);
 		return;
 	}
-
 	/* are there any tokens? (Yes) */
 	/* check if built-in command */
 	builtin_found = handle_builtin(args, shell_name, line_number);
@@ -38,15 +37,14 @@ void handle_command(char *input, char *shell_name, int line_number)
 	if (find_in_path(args[0]) == NULL)
 	{
 		fprintf(stderr, "%s: %d: %s: not found\n",
-                shell_name, line_number, args[0]);
+				shell_name, line_number, args[0]);
 	}
-
 	/* Does the command exist? (Yes) */
 	/* Send to execute_command to find and execute command */
 	else
 	{
 		execute_command(args);
-        
-        free(args);
+
+		free(args);
 	}
 }
