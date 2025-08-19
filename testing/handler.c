@@ -37,18 +37,16 @@ void handle_command(char *input, char *shell_name, int line_number)
 	/* Does the command exist? (No) */
 	if (find_in_path(args[0]) == NULL)
 	{
-		/* command not found - display error */
 		fprintf(stderr, "%s: %d: %s: not found\n",
-			shell_name, line_number, args[0]);
-		free(args);
-		return;
+                shell_name, line_number, args[0]);
 	}
 
 	/* Does the command exist? (Yes) */
 	/* Send to execute_command to find and execute command */
 	else
 	{
-		execute_command(args, shell_name, line_number);
+		execute_command(args);
+        
+        free(args);
 	}
-	free(args);
 }

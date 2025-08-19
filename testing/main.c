@@ -8,7 +8,7 @@
 
 void print_banner(void)
 {
-	printf("\033[1;32m");
+	printf("\033[0;31m");
 
 	printf(" ___  ___  ________  ___  ___     \n");
 	usleep(50000);
@@ -27,7 +27,7 @@ void print_banner(void)
 	printf("             \\|_________|        \n\n");
 	usleep(60000);
 
-	printf("\033[36m");
+	printf("\033[0;31m");
 	printf("         Holberton Simple Shell\n\n");
 
 	printf("\033[0m");
@@ -58,7 +58,7 @@ int main(void)
 	{
 		/* if isatty is 1 (interactive) present prompt */
 		if (is_interactive)
-			write(STDOUT_FILENO, "($) ", 4);
+			write(STDOUT_FILENO, "🚀 > ", 7);
 
 		/* read value == typed command or script file */
 		read = getline(&input, &len, stdin);

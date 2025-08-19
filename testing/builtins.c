@@ -17,6 +17,7 @@ void print_env(void)
         write(STDOUT_FILENO, environ[i], _strlen(environ[i]));
         write(STDOUT_FILENO, "\n", 1);
     }
+    write(STDOUT_FILENO, "\n", 1);
 }
 
 /**
@@ -35,6 +36,7 @@ int handle_builtin(char **input, char *shell_name, int line_number)
         {
             fprintf(stderr, "%s: %d: %s: extra operand '%s'\n", shell_name, line_number, input[0], input[1]);
             fprintf(stderr, "Try '%s --help' for more information.\n", input[0]);
+            fprintf(stderr, "\n");
             return (2); /* return 2 for "too many arguments error */
         }
 
@@ -49,6 +51,7 @@ int handle_builtin(char **input, char *shell_name, int line_number)
         {
             fprintf(stdout, "Usage: %s\n", input[0]);
             fprintf(stdout, "Prints the environment variables.\n");
+            fprintf(stdout, "\n");
             return 1; /* No error, just help message */
         }
 
@@ -57,6 +60,7 @@ int handle_builtin(char **input, char *shell_name, int line_number)
         {
             fprintf(stderr, "%s: %d: %s: extra operand '%s'\n", shell_name, line_number, input[0], input[1]);
             fprintf(stderr, "Try '%s --help' for more information.\n", input[0]);
+            fprintf(stderr,"\n");
             return 1; 
         }
         
