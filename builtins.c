@@ -56,7 +56,7 @@ int handle_builtin(char **input, char *shell_name, int line_number)
 		if (input[1] != NULL)
 			path = input[1];
 		else
-			path = getenv("HOME");
+			path = _getenv("HOME");
 		if (chdir(path) != 0)
 			fprintf(stderr, "%s: %d: cd: can't cd to %s\n",
 					shell_name, line_number, path);
