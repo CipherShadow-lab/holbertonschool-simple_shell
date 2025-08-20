@@ -58,3 +58,31 @@ char *_getenv(const char *name)
 	}
 	return (NULL);
 }
+
+/**
+ * _strncmp - compares two string lengths
+ * @s1: first string to compare
+ * @s2: second string to compare
+ * @n: length
+ *
+ * Return: 0 on success, otherwise 1 on failure
+ */
+
+int _strncmp(const char *s1, const char *s2, size_t n)
+{
+	while (n > 0 && *s1 != '\0' && *s2 != '\0' && *s1 == *s2)
+	{
+		s1++;
+		s2++;
+		n--;
+	}
+
+	if (n == 0)
+	{
+		return (0);
+	}
+	else
+	{
+		return ((unsigned char)*s1 - (unsigned char)*s2);
+	}
+}
