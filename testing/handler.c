@@ -45,6 +45,7 @@ void handle_command(char *input, char *shell_name, int line_number)
 	}
 	else
 	{
+		printf("\n");
 		execute_command(args, full_path, shell_name, line_number);
 	}
 
