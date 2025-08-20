@@ -31,8 +31,6 @@ void execute_command(
 
 	if (pid == 0)
 	{
-		for (int i = 0; args[i] != NULL; i++)
-			printf("  args[%d]: '%s'\n", i, args[i]);
 		if (execve(command_path, args, environ) == -1)
 		{
 			perror("execve failed");
