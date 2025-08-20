@@ -25,3 +25,36 @@ char *_strdup(const char *str)
 
 	return (dup);
 }
+
+
+/**
+ * _getenv - finds value of an environment variable
+ * @name: name of environment variable
+ *
+ * Return: pointer to string with the value of env var
+ */
+
+char *_getenv(const char *name)
+{
+	int i;
+	char *env_var;
+	size_t name_len;
+
+	if (name == NULL)
+	{
+		return (NULL);
+	}
+
+	name_len = _strlen(name);
+
+	for (i = 0; environ[i] != NULL; i++)
+	{
+		env_var = environ[i];
+		if (_strncmp(env_var, name, name_len) == 0 &&
+		    env_var[name_len] == '=')
+		{
+			return (&env_var[name_len + 1]);
+		}
+	}
+	return (NULL);
+}
