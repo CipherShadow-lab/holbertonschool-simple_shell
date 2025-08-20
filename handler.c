@@ -11,7 +11,7 @@
 
 void handle_command(char *input, char *shell_name, int line_number)
 {
-	char **args, *full_path;
+	char **args, *full_path, *path;
 	int builtin_found;
 	size_t len, cmd_len;
 
@@ -20,7 +20,6 @@ void handle_command(char *input, char *shell_name, int line_number)
 		input[len - 1] = '\0';
 
 	args = parse_input(input);
-
 	if (args == NULL || args[0] == NULL)
 		return;
 
@@ -35,20 +34,21 @@ void handle_command(char *input, char *shell_name, int line_number)
 		free(args);
 		return;
 	}
-
 	full_path = find_in_path(args[0]);
 	if (full_path == NULL)
 	{
 		fprintf(stderr, "%s: %d: %s: not found\n",
 				shell_name, line_number, args[0]);
+
+		path = _getenv("PATH");
+		if (path == NULL || *path == '\0')
+			printf("OK\n");
 		free(args);
-		free(full_path);
 		exit(127);
 	}
 	else
 	{
 		execute_command(args, full_path);
 	}
-
 	free(args);
 }
