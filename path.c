@@ -24,7 +24,7 @@ char *find_in_path(char *command)
 		}
 		counter++;
 	}
-	envpath = getenv("PATH");
+	envpath = _getenv("PATH");
 	if (envpath == NULL)
 		return (NULL);
 
