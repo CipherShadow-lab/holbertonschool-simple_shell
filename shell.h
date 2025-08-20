@@ -9,6 +9,7 @@
 #include <sys/wait.h>
 #include <sys/stat.h>
 #include <limits.h>
+#include <stddef.h>
 
 /* Extern global */
 extern char **environ;
@@ -30,5 +31,6 @@ char *_strchr(const char *s, int c);
 char *_strdup(const char *str);
 char *_strcat(char *dest, const char *src);
 char *_getenv(const char *name);
+int _strncmp(const char *s1, const char *s2, size_t n);
 
 #endif
