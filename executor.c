@@ -29,7 +29,7 @@ void execute_command(char **args, char *command_path)
 		if (execve(command_path, args, environ) == -1)
 		{
 			perror("execve failed");
-			exit(EXIT_FAILURE);
+			exit(127);
 		}
 	}
 	else
