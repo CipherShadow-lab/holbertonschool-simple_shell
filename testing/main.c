@@ -47,25 +47,21 @@ int main(void)
 	int is_interactive, line_number = 0;
 	char *shell_name = "./hsh";
 
-	/* isatty is either 0 (non-interactive) or 1 (interactive) */
 	is_interactive = isatty(STDIN_FILENO);
 
-	if (is_interactive) /* banner only works for interactive mode */
+	if (is_interactive)
 		print_banner();
 
 	while (1)
 	{
-		/* if isatty is 1 (interactive) present prompt */
 		if (is_interactive)
-        {
-            write(STDOUT_FILENO, "💀 > ", 7);
-            fflush(stdout);
-        }
+		{
+			write(STDOUT_FILENO, "💀 > ", 7);
+			fflush(stdout);
+		}
 
-		/* read value == typed command or script file */
 		read = getline(&input, &len, stdin);
 
-		/* if user enters CTRL+D or EOF is reached */
 		if (read == -1)
 		{
 			if (is_interactive)
@@ -73,18 +69,14 @@ int main(void)
 			break;
 		}
 
-		if (input[read - 1] == '\n') /* checks if last char is \n */
-			input[read - 1] = '\0'; /* replaces it with a null-terminator */
-
+		if (input[read - 1] == '\n')
+			input[read - 1] = '\0';
 		line_number++;
-
-        char *test_path = find_in_path("ls");
-        printf("DEBUG: In main, find_in_path('ls') returned: %s\n", test_path);
-        free(test_path);
 
 		handle_command(input, shell_name, line_number);
 	}
 
 	free(input);
+
 	return (0);
 }
