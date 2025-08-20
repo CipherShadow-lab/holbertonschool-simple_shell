@@ -41,6 +41,8 @@ void handle_command(char *input, char *shell_name, int line_number)
 	{
 		fprintf(stderr, "%s: %d: %s: not found\n",
 				shell_name, line_number, args[0]);
+		free(args);
+		exit(127);
 	}
 	else
 	{
