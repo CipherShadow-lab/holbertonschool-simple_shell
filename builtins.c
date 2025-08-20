@@ -29,7 +29,7 @@ void print_env(void)
 
 int handle_builtin(char **input, char *shell_name, int line_number)
 {
-	char cwd[1024], *path;
+	char *path;
 	int i;
 
 	if (_strcmp(input[0], "exit") == 0)
