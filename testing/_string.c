@@ -10,15 +10,14 @@
 
 int _strcmp(const char *s1, const char *s2)
 {
-    int i = 0;
+	int i = 0;
 
-    while (s1[i] != '\0' && s2[i] != '\0')
+	while (s1[i] != '\0' && s2[i] != '\0')
 	{
-        if (s1[i] != s2[i])
-            return (s1[i] - s2[i]);
-        i++;
+		if (s1[i] != s2[i])
+			return (s1[i] - s2[i]);
+		i++;
 	}
-
 	return (s1[i] - s2[i]);
 }
 
@@ -31,11 +30,11 @@ int _strcmp(const char *s1, const char *s2)
 
 int _strlen(const char *s)
 {
-    int len = 0;
+	int len = 0;
 
-    while (s[len] != '\0')
-        len++;
-    return (len);
+	while (s[len] != '\0')
+		len++;
+	return (len);
 }
 
 /**
@@ -47,16 +46,16 @@ int _strlen(const char *s)
 
 char *_strcpy(char *dest, const char *src)
 {
-    int i = 0;
+	int i = 0;
 
-    while (src[i])
-    {
-        dest[i] = src[i];
-        i++;
-    }
-    dest[i] = '\0';
+	while (src[i])
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = '\0';
 
-    return dest;
+	return (dest);
 }
 
 /**
@@ -69,11 +68,11 @@ char *_strcpy(char *dest, const char *src)
 
 char *_strchr(const char *str, int c)
 {
-    while (*str != '\0')
+	while (*str != '\0')
 	{
-        if (*str == (char)c)
-            return ((char *)str);
-        str++;
+		if (*str == (char)c)
+			return ((char *)str);
+		str++;
 	}
 
 	if (c == '\0')
@@ -92,20 +91,20 @@ char *_strchr(const char *str, int c)
 
 char *_strcat(char *dest, const char *src)
 {
-    int d = 0;
-    int s = 0;
+	int d = 0;
+	int s = 0;
 
 	while (dest[d] != '\0')
-        d++;
+		d++;
 
 	while (src[s] != '\0')
 	{
-        dest[d] = src[s];
+		dest[d] = src[s];
 		d++;
 		s++;
 	}
 
-    dest[d] = '\0'; /* null-terminate the result */
+	dest[d] = '\0';
 
 	return (dest);
 }
@@ -119,19 +118,19 @@ char *_strcat(char *dest, const char *src)
 
 char *_strdup(const char *str)
 {
-    char *dup;
-    size_t len;
+	char *dup;
+	size_t len;
 
-    if (str == NULL)
-        return (NULL);
+	if (str == NULL)
+		return (NULL);
 
-    len = _strlen(str);
-    dup = malloc(len + 1);  // +1 for null terminator
+	len = _strlen(str);
+	dup = malloc(len + 1);
 
-    if (dup == NULL)
-        return (NULL);
+	if (dup == NULL)
+		return (NULL);
 
-    _strcpy(dup, str);
-	
-    return (dup);
+	_strcpy(dup, str);
+
+	return (dup);
 }
