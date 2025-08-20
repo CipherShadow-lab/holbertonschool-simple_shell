@@ -40,6 +40,7 @@ char **parse_input(char *input)
 /*loop while there are tokens & array space (reserve last slot for NULL)*/
 	while (token != NULL && index < array_size - 1)
 	{
+        printf("DEBUG: parse_input - token[%d]: '%s'\n", index, token);
 		args[index] = token;
 		index++;
 		token = strtok(NULL, " ");
@@ -48,5 +49,6 @@ char **parse_input(char *input)
 /* add NULL to end of args array */
 	args[index] = NULL;
 
-	return (args);
+    printf("DEBUG: parse_input - total tokens: %d\n", index);
+    return (args);
 }

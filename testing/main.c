@@ -77,6 +77,11 @@ int main(void)
 			input[read - 1] = '\0'; /* replaces it with a null-terminator */
 
 		line_number++;
+
+        char *test_path = find_in_path("ls");
+        printf("DEBUG: In main, find_in_path('ls') returned: %s\n", test_path);
+        free(test_path);
+
 		handle_command(input, shell_name, line_number);
 	}
 

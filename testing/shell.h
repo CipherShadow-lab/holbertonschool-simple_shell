@@ -19,13 +19,13 @@ void handle_command(char *input, char *shell_name, int line_number);
 int handle_builtin(char **input, char *shell_name, int line_number);
 void print_env(void);
 char **parse_input(char *input);
-void execute_command(char **args, char *shell_name, int line_number);
+void execute_command(char **args, char *command_path, char *shell_name, int line_number);
 char *find_in_path(char *command);
 
 /* string helpers */
 int _strcmp(const char *s1, const char *s2);
 int _strlen(const char *s);
-char *_strcpy(char *dest, char *src);
+char *_strcpy(char *dest, const char *src);
 char *_strchr(const char *s, int c);
 char *_strdup(const char *str);
 char *_strcat(char *dest, const char *src);
