@@ -30,6 +30,7 @@ void print_env(void)
 int handle_builtin(char **input, char *shell_name, int line_number)
 {
 	char cwd[1024], *path;
+	int i;
 
 	if (_strcmp(input[0], "exit") == 0)
 	{
@@ -46,7 +47,7 @@ int handle_builtin(char **input, char *shell_name, int line_number)
 					shell_name, line_number, input[1]);
 			return (1);
 		}
-		for (int i = 0; environ[i]; i++)
+		for (i = 0; environ[i]; i++)
 			printf("%s\n", environ[i]);
 		return (1);
 	}
