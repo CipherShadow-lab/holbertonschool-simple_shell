@@ -42,7 +42,7 @@ void handle_command(char *input, char *shell_name, int line_number)
 
 		path = _getenv("PATH");
 		if (path == NULL || *path == '\0')
-			fprintf(stderr, "OK\n");
+			write(STDOUT_FILENO, "OK\n", 3);
 		free(args);
 		exit(127);
 	}
