@@ -56,7 +56,7 @@ int main(void)
 	{
 		if (is_interactive)
 		{
-			write(STDOUT_FILENO, "💀 > ", 7);
+			write(STDOUT_FILENO, "\n💀 > ", 8);
 			fflush(stdout);
 		}
 
