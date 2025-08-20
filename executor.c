@@ -10,12 +10,7 @@
  * Return: void
  */
 
-void execute_command(
-		char **args,
-		char *command_path,
-		char *shell_name,
-		int line_number
-		)
+void execute_command(char **args, char *command_path)
 {
 	pid_t pid;
 	int status;

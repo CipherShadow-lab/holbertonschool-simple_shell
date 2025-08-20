@@ -41,12 +41,13 @@ void handle_command(char *input, char *shell_name, int line_number)
 
 	if (full_path == NULL)
 	{
-		(shell_name, line_number, args[0]);
+		fprintf(stderr, "%s: %d: %s: not found\n",
+				shell_name, line_number, args[0]);
 	}
 	else
 	{
 		printf("\n");
-		execute_command(args, full_path, shell_name, line_number);
+		execute_command(args, full_path);
 	}
 
 	free(args);
