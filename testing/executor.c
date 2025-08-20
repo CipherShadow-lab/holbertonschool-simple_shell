@@ -20,7 +20,6 @@ void execute_command(
 	pid_t pid;
 	int status;
 
-	printf("DEBUG: execute_command: forking to run '%s'\n", command_path);
 	pid = fork();
 
 	if (pid == -1)
