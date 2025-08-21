@@ -42,9 +42,9 @@ void print_banner(void)
 
 void handle_sigint(int sig)
 {
-    (void)sig;
-    write(STDOUT_FILENO, "\n💀 > ", 8);
-    fflush(stdout);
+	(void)sig;
+	write(STDOUT_FILENO, "\n💀 > ", 8);
+	fflush(stdout);
 }
 
 /**
@@ -61,7 +61,7 @@ int main(void)
 	int is_interactive, line_number = 0;
 	char *shell_name = "./hsh";
 
-    signal(SIGINT, handle_sigint);
+	signal(SIGINT, handle_sigint);
 
 	is_interactive = isatty(STDIN_FILENO);
 	if (is_interactive)
