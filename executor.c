@@ -17,7 +17,7 @@ void execute_command(char **args, char *command_path)
 
 	if (pid == -1)
 	{
-		perror("fork");i
+		perror("fork");
 		return;
 	}
 
