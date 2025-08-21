@@ -84,14 +84,10 @@ int main(void)
 		if (input[read - 1] == '\n')
 			input[read - 1] = '\0';
 		line_number++;
-		if (_strcmp(input, "exit") == 0)
-		{
-			write(STDOUT_FILENO, "OK", 2);
-			free(input);
-			exit(0);
-		}
+
 		handle_command(input, shell_name, line_number);
 	}
 	free(input);
+	
 	return (0);
 }
