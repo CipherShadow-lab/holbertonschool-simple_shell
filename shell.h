@@ -22,7 +22,7 @@ void handle_command(char *input, char *shell_name,
 int handle_builtin(char **input, char *shell_name, int line_number);
 void print_env(void);
 char **parse_input(char *input);
-void execute_command(char **args, char *command_path);
+int execute_command(char **args, char *command_path);
 char *find_in_path(char *command);
 void handle_sigint(int sig);
 

@@ -5,10 +5,10 @@
  * @args: array of arguments
  * @command_path: full path to the command library
  *
- * Return: void
+ * Return: 0 on success
  */
 
-void execute_command(char **args, char *command_path)
+int execute_command(char **args, char *command_path)
 {
 	pid_t pid;
 	int status;
