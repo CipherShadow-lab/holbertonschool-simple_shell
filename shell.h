@@ -34,5 +34,6 @@ char *_strdup(const char *str);
 char *_strcat(char *dest, const char *src);
 char *_getenv(const char *name);
 int _strncmp(const char *s1, const char *s2, size_t n);
+void free_args(char **args);
 
 #endif

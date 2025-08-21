@@ -13,6 +13,7 @@ char **parse_input(char *input)
 	char **args;
 	int array_size = 50;
 	int index = 0;
+	int i;
 	char *token;
 
 	if (input[0] == '\0')
@@ -31,12 +32,19 @@ char **parse_input(char *input)
 
 	while (token != NULL && index < array_size - 1)
 	{
-		args[index] = token;
+		args[index] = _strdup(token);
+		if (args[index] == NULL)
+		{
+			/* free already duplicated tokens on failure */
+			for (i = 0; i < index; i++)
+				free(args[i]);
+			free(args);
+			return (NULL);
+		}
 		index++;
 		token = strtok(NULL, " ");
 	}
 
 	args[index] = NULL;
-
 	return (args);
 }
