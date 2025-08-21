@@ -38,11 +38,9 @@ int handle_builtin(char **input, char *shell_name, int line_number)
 		{
 			fprintf(stderr, "%s: %d: exit: extra operand '%s'\n",
 					shell_name, line_number, input[1]);
-			free_args(input);
 			return (1);
 		}
-		free_args(input);
-		exit(0);
+		return (2);
 	}
 	if (_strcmp(input[0], "env") == 0)
 	{

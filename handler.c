@@ -34,6 +34,8 @@ void handle_command(char *input, char *shell_name, int line_number)
 	if (builtin_found != 0)
 	{
 		free_args(args);
+		if (builtin_found == 2)
+			exit(0);
 		return;
 	}
 
