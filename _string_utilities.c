@@ -107,3 +107,23 @@ void free_args(char **args)
 	free(args);
 }
 
+/**
+ * process_builtin_exit - function returns last command used on exit
+ * @builtin_code: builtin exit code
+ * @args: arguments
+ * @last_status: last command's status
+ *
+ * Return: signal that exit occurred
+ */
+
+int process_builtin_exit(int builtin_code, char **args, int last_status)
+{
+	free_args(args);
+
+	if (builtin_code == 2)
+		exit(0);
+	else if (builtin_code == 3)
+		exit(last_status);
+
+	return (1);
+}

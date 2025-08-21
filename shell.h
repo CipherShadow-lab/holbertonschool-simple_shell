@@ -17,7 +17,12 @@ extern char **environ;
 
 
 /* function prototypes */
-void handle_command(char *input, char *shell_name, int line_number);
+void handle_command(
+		char *input,
+		char *shell_name,
+		int line_number,
+		*last_status
+		);
 int handle_builtin(char **input, char *shell_name, int line_number);
 void print_env(void);
 char **parse_input(char *input);
@@ -25,7 +30,7 @@ void execute_command(char **args, char *command_path);
 char *find_in_path(char *command);
 void handle_sigint(int sig);
 
-/* string helpers */
+/* helpers */
 int _strcmp(const char *s1, const char *s2);
 int _strlen(const char *s);
 char *_strcpy(char *dest, const char *src);
@@ -35,5 +40,6 @@ char *_strcat(char *dest, const char *src);
 char *_getenv(const char *name);
 int _strncmp(const char *s1, const char *s2, size_t n);
 void free_args(char **args);
+int process_builtin_exit(int builtin_code, char **args, int last_status);
 
 #endif
