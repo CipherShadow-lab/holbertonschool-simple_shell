@@ -17,7 +17,7 @@ void execute_command(char **args, char *command_path)
 
 	if (pid == -1)
 	{
-		perror("fork");
+		perror("fork");i
 		return;
 	}
 
@@ -26,6 +26,7 @@ void execute_command(char **args, char *command_path)
 		if (execve(command_path, args, environ) == -1)
 		{
 			perror("execve failed");
+			free(command_path);
 			exit(127);
 		}
 	}
