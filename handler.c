@@ -18,7 +18,6 @@ void handle_command(char *input, char *shell_name, int line_number)
 	len = strlen(input);
 	if (len > 0 && input[len - 1] == '\n')
 		input[len - 1] = '\0';
-
 	args = parse_input(input);
 	if (args == NULL || args[0] == NULL)
 	{
@@ -29,16 +28,16 @@ void handle_command(char *input, char *shell_name, int line_number)
 	cmd_len = strlen(args[0]);
 	if (cmd_len > 0 && args[0][cmd_len - 1] == '\n')
 		args[0][cmd_len - 1] = '\0';
-
 	builtin_found = handle_builtin(args, shell_name, line_number);
-	if (builtin_found != 0)
+	if (builtin_found == 2)
 	{
 		free_args(args);
-		if (builtin_found == 2)
-			exit(0);
-		return;
+		exit(0);
 	}
-
+	if (builtin_found == 1)
+	{
+		free_args(args);
+		return;
 	full_path = find_in_path(args[0]);
 	if (full_path == NULL)
 	{
