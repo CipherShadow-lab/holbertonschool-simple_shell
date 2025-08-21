@@ -23,7 +23,7 @@ void handle_command(char *input, char *shell_name, int line_number)
 	if (args == NULL || args[0] == NULL)
 	{
 		if (args != NULL)
-			free(args);
+			free_args(args);
 		return;
 	}
 	cmd_len = strlen(args[0]);
@@ -33,7 +33,7 @@ void handle_command(char *input, char *shell_name, int line_number)
 	builtin_found = handle_builtin(args, shell_name, line_number);
 	if (builtin_found != 0)
 	{
-		free(args);
+		free_args(args);
 		return;
 	}
 
@@ -43,12 +43,12 @@ void handle_command(char *input, char *shell_name, int line_number)
 		fprintf(stderr, "%s: %d: %s: not found\n",
 				shell_name, line_number, args[0]);
 
-		free(args);
+		free_args(args);
 		exit(127);
 	}
 	else
 	{
 		execute_command(args, full_path);
 	}
-	free(args);
+	free_args(args);
 }
