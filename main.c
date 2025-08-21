@@ -66,7 +66,6 @@ int main(void)
 	is_interactive = isatty(STDIN_FILENO);
 	if (is_interactive)
 		print_banner();
-
 	while (1)
 	{
 		if (is_interactive)
@@ -76,22 +75,23 @@ int main(void)
 		}
 
 		read = getline(&input, &len, stdin);
-
 		if (read == -1)
 		{
 			if (is_interactive)
 				write(STDOUT_FILENO, "\n", 1);
 			break;
 		}
-
 		if (input[read - 1] == '\n')
 			input[read - 1] = '\0';
 		line_number++;
-
+		if (_strcmp(input, "exit") == 0)
+		{
+			printf("OK\n");
+			free(input);
+			exit(0);
+		}
 		handle_command(input, shell_name, line_number);
 	}
-
 	free(input);
-
 	return (0);
 }
