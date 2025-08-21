@@ -50,7 +50,7 @@ void handle_sigint(int sig)
 /**
  * main - the main entry point for the simple shell program
  *
- * Return: 0 on success
+ * Return: last status
  */
 
 int main(void)
@@ -88,5 +88,5 @@ int main(void)
 		handle_command(input, shell_name, line_number, &last_status);
 	}
 	free(input);
-	return (0);
+	return (last_status);
 }
