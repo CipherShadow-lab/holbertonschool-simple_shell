@@ -4,8 +4,6 @@
  * execute_command - executes a command by forking and calling execve
  * @args: array of arguments
  * @command_path: full path to the command library
- * @shell_name: name of shell program
- * @line_number: line number in session or script
  *
  * Return: void
  */
