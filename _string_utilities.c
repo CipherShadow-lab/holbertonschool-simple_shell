@@ -86,3 +86,24 @@ int _strncmp(const char *s1, const char *s2, size_t n)
 		return ((unsigned char)*s1 - (unsigned char)*s2);
 	}
 }
+
+/**
+ * free_args - function frees each string and then array
+ * @args: arguments or strings to free
+ *
+ * Return: void
+ */
+
+void free_args(char **args)
+{
+	int i;
+
+	if (args == NULL)
+		return;
+
+	for (i = 0; args[i] != NULL; i++)
+		free(args[i]);
+
+	free(args);
+}
+
