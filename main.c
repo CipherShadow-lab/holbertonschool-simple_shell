@@ -34,6 +34,20 @@ void print_banner(void)
 }
 
 /**
+ * handle_sigint - handles hotkeys like CTRL+C
+ * @sig: signal input (C) received
+ *
+ * Return: void
+ */
+
+void handle_sigint(int sig)
+{
+    (void)sig;
+    write(STDOUT_FILENO, "\n💀 > ", 8);
+    fflush(stdout);
+}
+
+/**
  * main - the main entry point for the simple shell program
  *
  * Return: 0 on success
@@ -47,8 +61,9 @@ int main(void)
 	int is_interactive, line_number = 0;
 	char *shell_name = "./hsh";
 
-	is_interactive = isatty(STDIN_FILENO);
+    signal(SIGINT, handle_sigint);
 
+	is_interactive = isatty(STDIN_FILENO);
 	if (is_interactive)
 		print_banner();
 
