@@ -32,6 +32,14 @@ int handle_builtin(char **input, char *shell_name, int line_number)
 	char *path;
 	int i;
 
+	if (_strcmp(input[0], "exit") == 0)
+	{
+		if (input[1])
+			fprintf(stderr, "%s: %d: exit: extra operand '%s'\n",
+					shell_name, line_number, input[1]);
+		exit(0);
+	}
+
 	if (_strcmp(input[0], "env") == 0)
 	{
 		if (input[1])
