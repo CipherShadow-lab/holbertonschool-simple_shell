@@ -46,9 +46,7 @@ void handle_command(char *input, char *shell_name, int line_number)
 		free_args(args);
 		exit(127);
 	}
-	else
-	{
-		execute_command(args, full_path);
-	}
+	execute_command(args, full_path);
+	free(full_path);
 	free_args(args);
 }
