@@ -40,7 +40,7 @@ int handle_builtin(char **input, char *shell_name, int line_number)
 					shell_name, line_number, input[1]);
 			return (1);
 		}
-		return (2);
+		return (3);
 	}
 	if (_strcmp(input[0], "env") == 0)
 	{
