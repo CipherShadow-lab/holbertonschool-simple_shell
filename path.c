@@ -25,7 +25,7 @@ char *find_in_path(char *command)
 		counter++;
 	}
 	envpath = _getenv("PATH");
-	if (envpath == NULL)
+	if (envpath == NULL || envpath[0] == '\0')
 		return (NULL);
 
 	envpath_copy = _strdup(envpath);
