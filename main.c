@@ -62,7 +62,6 @@ int main(void)
 	char *shell_name = "./hsh";
 
 	signal(SIGINT, handle_sigint);
-
 	is_interactive = isatty(STDIN_FILENO);
 	if (is_interactive)
 		print_banner();
@@ -88,6 +87,6 @@ int main(void)
 		handle_command(input, shell_name, line_number);
 	}
 	free(input);
-	
+
 	return (0);
 }
