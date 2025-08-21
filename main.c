@@ -59,6 +59,7 @@ int main(void)
 	size_t len = 0;
 	ssize_t read;
 	int is_interactive, line_number = 0;
+	int last_status = 0;
 	char *shell_name = "./hsh";
 
 	signal(SIGINT, handle_sigint);
@@ -84,9 +85,8 @@ int main(void)
 			input[read - 1] = '\0';
 		line_number++;
 
-		handle_command(input, shell_name, line_number);
+		handle_command(input, shell_name, line_number, &last_status);
 	}
 	free(input);
-
 	return (0);
 }
