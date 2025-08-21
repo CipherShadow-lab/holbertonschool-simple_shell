@@ -20,7 +20,6 @@ void execute_command(char **args, char *command_path)
 	if (pid == -1)
 	{
 		perror("fork");
-		free(command_path);
 		return;
 	}
 
@@ -35,6 +34,5 @@ void execute_command(char **args, char *command_path)
 	else
 	{
 		waitpid(pid, &status, 0);
-		free(command_path);
 	}
 }
