@@ -35,8 +35,12 @@ int handle_builtin(char **input, char *shell_name, int line_number)
 	if (_strcmp(input[0], "exit") == 0)
 	{
 		if (input[1])
+		{
 			fprintf(stderr, "%s: %d: exit: extra operand '%s'\n",
 					shell_name, line_number, input[1]);
+			free_args(input);
+			return (1);
+		}
 		free_args(input);
 		exit(0);
 	}
@@ -48,26 +52,21 @@ int handle_builtin(char **input, char *shell_name, int line_number)
 					shell_name, line_number, input[1]);
 			return (1);
 		}
-
 		for (i = 0; environ[i]; i++)
 			printf("%s\n", environ[i]);
 		return (1);
 	}
-	else if (_strcmp(input[0], "cd") == 0)
+	if (_strcmp(input[0], "cd") == 0)
 	{
-		if (input[1] != NULL)
-			path = input[1];
-		else
+		path = input[1];
+		if (path == NULL)
 			path = _getenv("HOME");
 		if (chdir(path) != 0)
 			fprintf(stderr, "%s: %d: cd: can't cd to %s\n",
 					shell_name, line_number, path);
 		return (1);
 	}
-	else if (_strcmp(input[0], "clear") == 0)
-	{
-		write(STDOUT_FILENO, "\033[H\033[J", 6);
-		return (1);
-	}
+	if (_strcmp(input[0], "clear") == 0)
+		return (write(STDOUT_FILENO, "\033[H\033[J", 6), 1);
 	return (0);
 }
