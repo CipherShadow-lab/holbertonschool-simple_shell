@@ -31,9 +31,9 @@ void handle_command(char *input, char *shell_name,
 	builtin_found = handle_builtin(args, shell_name, line_number);
 
 	if (builtin_found == 2)
-		clean_exit(args, input, 0);
+		clean_exit(input, args, 0);
 	if (builtin_found == 3)
-		clean_exit(args, input, *last_status);
+		clean_exit(input, args, *last_status);
 	if (builtin_found == 1)
 	{
 		*last_status = 0;
