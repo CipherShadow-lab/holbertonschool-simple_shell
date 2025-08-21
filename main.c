@@ -78,7 +78,6 @@ int main(void)
 		{
 			if (is_interactive)
 				write(STDOUT_FILENO, "\n", 1);
-			free(input);
 			break;
 		}
 		if (input[read - 1] == '\n')
