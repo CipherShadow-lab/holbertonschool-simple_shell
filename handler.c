@@ -38,6 +38,7 @@ void handle_command(char *input, char *shell_name, int line_number)
 	{
 		free_args(args);
 		return;
+	}
 	full_path = find_in_path(args[0]);
 	if (full_path == NULL)
 	{
