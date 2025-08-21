@@ -18,17 +18,18 @@ void handle_command(char *input, char *shell_name, int line_number)
 	len = strlen(input);
 	if (len > 0 && input[len - 1] == '\n')
 		input[len - 1] = '\0';
-
 	args = parse_input(input);
 	if (args == NULL || args[0] == NULL)
+	{
+		if (args != NULL)
+			free(args);
 		return;
-
+	}
 	cmd_len = strlen(args[0]);
 	if (cmd_len > 0 && args[0][cmd_len - 1] == '\n')
 		args[0][cmd_len - 1] = '\0';
 
 	builtin_found = handle_builtin(args, shell_name, line_number);
-
 	if (builtin_found != 0)
 	{
 		free(args);
@@ -39,7 +40,6 @@ void handle_command(char *input, char *shell_name, int line_number)
 	{
 		fprintf(stderr, "%s: %d: %s: not found\n",
 				shell_name, line_number, args[0]);
-
 		path = _getenv("PATH");
 		if (path == NULL || *path == '\0')
 			write(STDOUT_FILENO, "OK\n", 3);
