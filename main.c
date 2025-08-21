@@ -86,7 +86,7 @@ int main(void)
 		line_number++;
 		if (_strcmp(input, "exit") == 0)
 		{
-			printf("OK\n");
+			write(STDOUT_FILENO, "OK", 2);
 			free(input);
 			exit(0);
 		}
