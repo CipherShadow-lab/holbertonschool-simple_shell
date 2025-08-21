@@ -18,7 +18,7 @@ void execute_command(char **args, char *command_path)
 	if (pid == -1)
 	{
 		perror("fork");
-		return;
+		return (1);
 	}
 
 	if (pid == 0)
@@ -33,5 +33,10 @@ void execute_command(char **args, char *command_path)
 	else
 	{
 		waitpid(pid, &status, 0);
+		if (WIFEXITED(status))
+			return (WEXITSTATUS(status));
+		else
+			return (1);
 	}
+	return (0);
 }
