@@ -37,5 +37,6 @@ char *_getenv(const char *name);
 int _strncmp(const char *s1, const char *s2, size_t n);
 void free_args(char **args);
 int process_builtin_exit(int builtin_code, char **args, int last_status);
+void clean_exit(char *line, char **args, int status);
 
 #endif
