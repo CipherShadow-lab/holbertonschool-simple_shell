@@ -28,7 +28,7 @@ void print_banner(void)
 	usleep(60000);
 
 	printf("\033[0;31m");
-	printf("         Holberton Simple Shell\n\n");
+	printf("            HOLBERTON SHELL\n\n");
 
 	printf("\033[0m");
 }
