@@ -14,7 +14,7 @@ hsh \- a simple shell interpretation of the standard shell
 [command] [option] | ./hsh
 .br
 .br
-Following execution, the shell will display the prompt "> " where users can enter commands.
+Following execution, the shell will display the prompt "💀> " where users can enter commands.
 
 .SH DESCRIPTION
 The purpose of the HSH shell is to provide a user interface for interacting with the operating system's kernel. It acts as a command-line interpreter, enabling users to execute commands, manage files and directories, automate tasks through scripting, and perform system administration functions.
@@ -99,12 +99,12 @@ The shell will exit with one of the following statuses:
 .SH EXAMPLES
 .B Interactive mode:
 .br
-> ls
+💀> ls
 .br
 documents betty_isnotmyfriend.txt adrian.jpg
 .br
 .br
-> /bin/ls
+💀> /bin/ls
 .br
 documents betty_isnotmyfriend.txt adrian.jpg
 .br
