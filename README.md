@@ -1,6 +1,7 @@
 ![Unleash the shell within](Documents/Holberton-Shell-Banner_v3.png)
 
 # Simple Shell Project
+
 A basic Unix command-line interpreter built in C that replicates key features of the standard shell.
 
 ### 📖 Project Description
