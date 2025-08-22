@@ -6,98 +6,122 @@
 .SH NAME
 hsh \- a simple shell interpretation of the standard shell
 
-
 .SH SYNOPSIS
-.B ./hsh command [option] [FILE]
-
-Following execution, the shell will display the prompt "$ " where users can enter commands.
-
+.B Interactive mode: 
+\&./hsh [command] [option]
+.br
+.B Non-Interactive mode: 
+[command] [option] | ./hsh
+.br
+.br
+Following execution, the shell will display the prompt "> " where users can enter commands.
 
 .SH DESCRIPTION
-This project is a simple Unix shell implemented in the C programming language. It replicates a subset of standard shell behaviour, such as executing programs, handling environment variables and responding to user input.
-
-This simple shell has both interactive and non-interactive modes, where commands can either be entered to the running shell, or through an executed file (see below).
-
+The purpose of the HSH shell is to provide a user interface for interacting with the operating system's kernel. It acts as a command-line interpreter, enabling users to execute commands, manage files and directories, automate tasks through scripting, and perform system administration functions.
+Specifically, the HSH shell performs the following key functions:
+.br
+.br
+.B Command Interpretation and Execution:
+.br
+It reads user-entered commands (in interactive mode), interprets them, and translates them into instructions that the kernel can understand and execute.
+.br
+.br
+.B Input/Output Redirection:
+.br
+It allows users to redirect the output of a command to a file or another command (using pipes), and to take input from a file instead of the keyboard (non-interactive mode).
 
 .SH OPTIONS
-hsh will enter the interactive mode of the simple shell.
-
-Commands can be entered right into the command line. Command options will be entered after the main command.
-
+Commands can be entered directly into the command line. Options can be entered after the main command.
+The following options are supported:
+.br
+.br
+.B [ -i ]
+- Specifies that the shell is interactive.
+.br
+With the -i option present and the shell's standard input and standard error handling attached to the terminal, the shell is considered to be interactive.
 
 .SH ENVIRONMENT VARIABLES
-The following environment variables shall affect the execution of hsh:
-
-
-PATH    Directories to search for commands
-HOME    The home directory
-PWD     The current working directory
-OLDPWD  The previous working directory
-USER    The name of the current user
-SHELL   The absolute path to the user's default shell
-TERM    The type of terminal being used
-
+Environment variables in the HSH shell serve as a mechanism to store and share configuration information and settings that are accessible to the current shell and all its child processes. Their primary purposes include:
+.br
+.br
+.B Configuration and Customisation:
+They allow users to customise their shell environment and the behaviour of programs. For example, the PATH variable defines directories where the shell searches for executable commands, and HOME points to the user's home directory.
+.br
+.br
+.B Information Sharing:
+The HSH environment variables facilitate the passing of information and settings from parent processes to child processes. This ensures that programs launched from the shell inherit relevant environmental details, such as locale settings,  terminal type and user-specific configurations.
+.br
+.br
+The following are examples of environment variables:
+.br
+.br
+.B PATH
+- Directories to search for commands.
+.br
+.B HOME
+- The home directory.
+.br
+.B USER
+- The name of the current user.
+.br
+.B SHELL
+- The absolute path to the user's default shell.
+.br
+.B TERM
+- The type of terminal being used.
 
 .SH BUILTINS
 The following builtin commands are supported:
-
+.br
+.br
 .B exit
-- Exit the shell
-
+- Exit the shell.
+.br
 .B env
 - Prints environment variables from the current environment.
-
-.B cd [Directory]
-- Changes the current directory to the given directory.
-
+.br
 .B clear
-- Clears the terminal screen using an escape sequence
-
-
-.SH RETURN VALUE
-The return value will 0 if successful. Otherwise a non-zero number will be displayed.
-
+- Clears the terminal screen.
+.br
+.B cd
+- Changes the current directory to the given directory.
 
 .SH EXIT STATUS
 The shell will exit with one of the following statuses:
-
-0       Successful execution of the shell or command
-1       Error with exit
-127     Command not found or execve failed
-
+.br
+.br
+.B 1 - 3
+- A specific command could not be executed due to an error.
+.br
+.B 127
+- A specified command could not be found.
 
 .SH EXAMPLES
-
-.B Example (Interactive mode):
-.nf
-$ ./hsh
-($) /bin/ls
-hsh main.c shell.c
-($) exit
-$
-.fi
+.B Interactive mode:
 .br
-
-.B Example (Non-interactive mode):
+> ls
 .br
-.nf
-$ echo "/bin/ls" | ./hsh
-hsh main.c shell.c test_ls_2
-$ cat test_ls_2
-/bin/ls
-/bin/ls
-$ cat test_ls_2 | ./hsh
-hsh main.c shell.c test_ls_2
-hsh main.c shell.c test_ls_2
-.fi
-
+documents betty_isnotmyfriend.txt adrian.jpg
+.br
+.br
+> /bin/ls
+.br
+documents betty_isnotmyfriend.txt adrian.jpg
+.br
+.br
+.B Non-interactive mode:
+.br
+$ echo "pwd" | ./hsh
+.br
+/users/betty/holbertonschool-simple-shell
 
 .SH AUTHORS
-Anna Halaapiapi, Tran Nguyen, and Toni Mathieson
+Toni Mathieson, Tran Nguyen, and Anna Halaapiapi
 
 .SH BUGS
-There are no known bugs. Please report them to the authors.
+There are no known bugs. Please report any bugs to Betty.
 
 .SH SEE ALSO
 .BR bash (1)
+.br
 .BR sh (1)
