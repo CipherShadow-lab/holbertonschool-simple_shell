@@ -1,0 +1,103 @@
+.\" Manpage for hsh
+.\" Contact Anna Halaapiapi, Tran Nguyen, and Toni Mathieson to correct errors or typos.
+.TH HSH 1 "22 August 2025" "Version 1.0" "Holberton Simple Shell Project - User Manual"
+
+
+.SH NAME
+hsh \- a simple shell interpretation of the standard shell
+
+
+.SH SYNOPSIS
+.B ./hsh command [option] [FILE]
+
+Following execution, the shell will display the prompt "$ " where users can enter commands.
+
+
+.SH DESCRIPTION
+This project is a simple Unix shell implemented in the C programming language. It replicates a subset of standard shell behaviour, such as executing programs, handling environment variables and responding to user input.
+
+This simple shell has both interactive and non-interactive modes, where commands can either be entered to the running shell, or through an executed file (see below).
+
+
+.SH OPTIONS
+hsh will enter the interactive mode of the simple shell.
+
+Commands can be entered right into the command line. Command options will be entered after the main command.
+
+
+.SH ENVIRONMENT VARIABLES
+The following environment variables shall affect the execution of hsh:
+
+
+PATH    Directories to search for commands
+HOME    The home directory
+PWD     The current working directory
+OLDPWD  The previous working directory
+USER    The name of the current user
+SHELL   The absolute path to the user's default shell
+TERM    The type of terminal being used
+
+
+.SH BUILTINS
+The following builtin commands are supported:
+
+.B exit
+- Exit the shell
+
+.B env
+- Prints environment variables from the current environment.
+
+.B cd [Directory]
+- Changes the current directory to the given directory.
+
+.B clear
+- Clears the terminal screen using an escape sequence
+
+
+.SH RETURN VALUE
+The return value will 0 if successful. Otherwise a non-zero number will be displayed.
+
+
+.SH EXIT STATUS
+The shell will exit with one of the following statuses:
+
+0       Successful execution of the shell or command
+1       Error with exit
+127     Command not found or execve failed
+
+
+.SH EXAMPLES
+
+.B Example (Interactive mode):
+.nf
+$ ./hsh
+($) /bin/ls
+hsh main.c shell.c
+($) exit
+$
+.fi
+.br
+
+.B Example (Non-interactive mode):
+.br
+.nf
+$ echo "/bin/ls" | ./hsh
+hsh main.c shell.c test_ls_2
+$ cat test_ls_2
+/bin/ls
+/bin/ls
+$ cat test_ls_2 | ./hsh
+hsh main.c shell.c test_ls_2
+hsh main.c shell.c test_ls_2
+.fi
+
+
+.SH AUTHORS
+Anna Halaapiapi, Tran Nguyen, and Toni Mathieson
+
+.SH BUGS
+There are no known bugs. Please report them to the authors.
+
+.SH SEE ALSO
+.BR bash (1)
+.BR sh (1)
