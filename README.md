@@ -2,7 +2,7 @@
 
 # Simple Shell Project
 
-A basic Unix command-line interpreter built in C that replicates key features of the standard shell.
+A Unix command-line interpreter built in C that replicates key features of the standard shell.
 
 ### 📖 Project Description
 This project is a simple Unix shell implemented in the C programming language. It replicates a subset of common shell behaviours such as executing programs, handling environment variables and responding to user input.
